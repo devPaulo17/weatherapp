@@ -6,6 +6,6 @@ import com.weatherapp.domain.entities.weather.Weather
 class WeatherRepositoryImpl(private val remoteDatasource: RemoteWeatherDataSource) :
     WeatherRepository {
 
-    override suspend fun getDetailLocationWeather(): HandleResult<Weather> = remoteDatasource.getDetailLocationWeather()
+    override suspend fun getDetailLocationWeather(woeidLocation: Int): HandleResult<Weather> = remoteDatasource.getDetailLocationWeather(woeidLocation)
 
 }

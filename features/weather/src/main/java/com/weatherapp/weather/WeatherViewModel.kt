@@ -13,12 +13,12 @@ class WeatherViewModel(private val weatherRepository: WeatherRepository): ViewMo
     private val _viewState = MutableLiveData<WeatherhUiState>(WeatherhUiState.Loading)
     val viewState: LiveData<WeatherhUiState> = _viewState
 
-    fun getLocationWeatherDetail() {
+    fun getLocationWeatherDetail(woeidLocation: Int) {
         viewModelScope.launch {
-            _viewState.value = when (val result = weatherRepository.getDetailLocationWeather()) {
+            _viewState.value = when (val result = weatherRepository.getDetailLocationWeather(woeidLocation)) {
                 HandleResult.Loading -> WeatherhUiState.Loading
                 is HandleResult.Success -> {
-                    WeatherhUiState.ListCategories(result.data)
+                    WeatherhUiState.WeatherDetail(result.data)
                 }
                 is HandleResult.InternetConnectionError -> WeatherhUiState.ErrorConnection
                 is HandleResult.Error -> WeatherhUiState.Error

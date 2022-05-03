@@ -3,10 +3,8 @@ package com.weatherapp.weather
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.weatherapp.domain.HandleResult
-import com.weatherapp.domain.entities.search.Search
 import com.weatherapp.domain.entities.weather.ConsolidatedWeather
 import com.weatherapp.domain.entities.weather.Weather
-import com.weatherapp.domain.repositories.search.SearchRepository
 import com.weatherapp.domain.repositories.weather.WeatherRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -41,7 +39,7 @@ class WeatherViewModelTest {
 
 
     private val mockResultsRepository = mock<WeatherRepository> {
-        onBlocking { getDetailLocationWeather() } doReturn HandleResult.Success(weatherLocationDetail)
+        onBlocking { getDetailLocationWeather(woeidLocation) } doReturn HandleResult.Success(weatherLocationDetail)
     }
 
     private val viewModel =
@@ -53,7 +51,7 @@ class WeatherViewModelTest {
         val spyLiveData: Observer<WeatherhUiState> = spy(Observer { })
         viewModel.viewState.observeForever(spyLiveData)
         runBlocking {
-            viewModel.getLocationWeatherDetail()
+            viewModel.getLocationWeatherDetail(woeidLocation)
             assertTrue(viewModel.viewState.value is WeatherhUiState.ListCategories)
         }
     }

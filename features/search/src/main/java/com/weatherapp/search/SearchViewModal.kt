@@ -116,7 +116,6 @@ class SearchViewModal : BottomSheetDialogFragment(), CoroutineScope {
         when (state) {
             is SearchUiState.SearchResultList -> setSearchData(state.data)
             is SearchUiState.Loading -> showLoadingState()
-            is SearchUiState.Error -> setErrorState()
             else -> {
                 setErrorState()
             }

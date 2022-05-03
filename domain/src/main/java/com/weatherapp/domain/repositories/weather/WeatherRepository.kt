@@ -5,5 +5,5 @@ import com.weatherapp.domain.entities.search.Search
 import com.weatherapp.domain.entities.weather.Weather
 
 interface WeatherRepository {
-    suspend fun getDetailLocationWeather(): HandleResult<Weather>
+    suspend fun getDetailLocationWeather(woeidLocation: Int): HandleResult<Weather>
 }

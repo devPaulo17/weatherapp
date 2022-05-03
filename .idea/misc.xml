@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.2222222222222222" />
         <entry key="features/search/src/main/res/layout/activity_search.xml" value="0.10204081632653061" />
         <entry key="features/search/src/main/res/layout/item_result.xml" value="0.1092896174863388" />
-        <entry key="features/weather/src/main/res/layout/activity_weather_detail.xml" value="0.1" />
+        <entry key="features/weather/src/main/res/layout/activity_weather_detail.xml" value="0.25" />
+        <entry key="features/weather/src/main/res/layout/item_forecast.xml" value="0.29393115942028986" />
       </map>
     </option>
   </component>
