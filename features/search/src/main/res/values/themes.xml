@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="Theme.Weatherapp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Weatherapp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Weatherapp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
