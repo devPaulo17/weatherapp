@@ -37,7 +37,7 @@ class SearchViewModelTest {
     )
 
     private val mockResultsRepository = mock<SearchRepository> {
-        onBlocking { getResults() } doReturn HandleResult.Success(searchResultList)
+        onBlocking { getResults(searchText) } doReturn HandleResult.Success(searchResultList)
     }
 
     private val viewModel =
@@ -49,7 +49,7 @@ class SearchViewModelTest {
         val spyLiveData: Observer<SearchUiState> = spy(Observer { })
         viewModel.viewState.observeForever(spyLiveData)
         runBlocking {
-            viewModel.getResults()
+            viewModel.getResults(searchText)
             assertTrue(viewModel.viewState.value is SearchUiState.ListCategories)
         }
     }
@@ -59,7 +59,7 @@ class SearchViewModelTest {
         val spyLiveData: Observer<SearchUiState> = spy(Observer { })
         viewModel.viewState.observeForever(spyLiveData)
         runBlocking {
-            viewModel.getResults()
+            viewModel.getResults(searchText)
             assertTrue(viewModel.viewState.value is SearchUiState.ListCategories)
         }
     }

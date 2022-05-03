@@ -4,5 +4,5 @@ import com.weatherapp.domain.HandleResult
 import com.weatherapp.domain.entities.search.Search
 
 interface SearchRepository {
-    suspend fun getResults(): HandleResult<List<Search>>
+    suspend fun getResults(searchText: String): HandleResult<List<Search>>
 }

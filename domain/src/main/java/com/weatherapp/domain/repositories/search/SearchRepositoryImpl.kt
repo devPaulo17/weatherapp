@@ -5,5 +5,5 @@ import com.weatherapp.domain.entities.search.Search
 
 class SearchRepositoryImpl(private val remoteDataSource: RemoteSearchDataSource): SearchRepository {
 
-    override suspend fun getResults(): HandleResult<List<Search>> = remoteDataSource.getResults()
+    override suspend fun getResults(searchText: String): HandleResult<List<Search>> = remoteDataSource.getResults(searchText)
 }

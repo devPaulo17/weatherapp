@@ -13,9 +13,9 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
     private val _viewState = MutableLiveData<SearchUiState>(SearchUiState.Loading)
     val viewState: LiveData<SearchUiState> = _viewState
 
-    fun getResults() {
+    fun getResults(searchText: String) {
         viewModelScope.launch {
-            _viewState.value = when (val result = searchRepository.getResults()) {
+            _viewState.value = when (val result = searchRepository.getResults(searchText)) {
                 HandleResult.Loading -> SearchUiState.Loading
                 is HandleResult.Success -> {
                     SearchUiState.ListCategories(result.data)

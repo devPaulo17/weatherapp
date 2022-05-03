@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="features/search/src/main/res/layout/activity_search.xml" value="0.22" />
+        <entry key="features/search/src/main/res/layout/item_result.xml" value="0.18385416666666668" />
         <entry key="features/weather/src/main/res/layout/activity_weather_detail.xml" value="0.1" />
       </map>
     </option>

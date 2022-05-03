@@ -9,9 +9,9 @@ import com.weatherapp.domain.repositories.search.RemoteSearchDataSource
 
 class RemoteSearchDataSourceImpl( private val rocketsApiService: SearchApiService) : RemoteSearchDataSource {
 
-    override suspend fun getResults(): HandleResult<List<Search>> {
+    override suspend fun getResults(searchText: String): HandleResult<List<Search>> {
         val result = executeRetrofitRequest {
-            rocketsApiService.getResults()
+            rocketsApiService.getResults(searchText)
         }
 
         return handleResultRetrofit(result) { results ->
