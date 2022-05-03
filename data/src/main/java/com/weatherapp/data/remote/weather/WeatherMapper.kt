@@ -1,5 +1,6 @@
 package com.weatherapp.data.remote.weather
 
+
 import com.weatherapp.data.remote.entities.weather.ConsolidatedWeatherApi
 import com.weatherapp.data.remote.entities.weather.WeatherApi
 import com.weatherapp.domain.entities.weather.Weather
@@ -12,8 +13,9 @@ fun WeatherApi.weatherMapper(): Weather {
         woeid = woeid,
         lattLong = lattLong?:"",
         timeZone = timeZone?:"",
-        consolidatedWeather = consolidatedWeather.consolidateMapper()
-
+        consolidatedWeather = consolidatedWeather.consolidateMapper(),
+        sunRise = sunRise,
+        sunSet = sunSet
     )
 }
 
@@ -21,7 +23,13 @@ fun List<ConsolidatedWeatherApi>.consolidateMapper(): List<ConsolidatedWeather> 
     return map { item ->
         ConsolidatedWeather(
             weatherStateName = item.weatherStateName,
-            weatherStateAbbr = item.weatherStateAbbr
+            weatherStateAbbr = item.weatherStateAbbr,
+            applicableDate = item.applicableDate,
+            theTemp = item.theTemp,
+            minTemp = item.minTemp,
+            maxTemp = item.maxTemp,
+            windSpeed = item.windSpeed,
+            humidity = item.humidity
         )
     }
 }

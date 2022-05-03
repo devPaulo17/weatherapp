@@ -11,10 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        startActivity(Intent(this,WeatherDetailActivity::class.java))
-
-        /*val platziInfoActionModal = SearchViewModal()
-        platziInfoActionModal.show(supportFragmentManager, platziInfoActionModal.tag)*/
+        val platziInfoActionModal = SearchViewModal()
+        platziInfoActionModal.show(supportFragmentManager, platziInfoActionModal.tag)
     }
 }

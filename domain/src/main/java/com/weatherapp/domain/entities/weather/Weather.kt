@@ -6,5 +6,7 @@ data class Weather(
     val woeid: Int,
     var lattLong: String,
     val timeZone: String,
-    val consolidatedWeather: List<ConsolidatedWeather> = listOf()
+    val consolidatedWeather: List<ConsolidatedWeather> = listOf(),
+    val sunRise: String,
+    val sunSet: String
 )

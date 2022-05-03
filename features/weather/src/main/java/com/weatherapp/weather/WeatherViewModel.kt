@@ -25,6 +25,4 @@ class WeatherViewModel(private val weatherRepository: WeatherRepository): ViewMo
             }
         }
     }
-
-
 }
