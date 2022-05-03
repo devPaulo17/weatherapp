@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="prmiary_background">#E6E1E5</color>
+    <color name="primary_editText">#CAC4D0</color>
+    <color name="icons">#5F5E5E</color>
+    <color name="divider_line_background">#A6A4A4</color>
+</resources>

@@ -7,41 +7,41 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="0dp"
+        android:id="@+id/textView_title"
+        android:layout_width="@dimen/layout_width_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:layout_marginStart="@dimen/layout_marginStart_16dp"
+        android:layout_marginTop="@dimen/layout_marginTop_8dp"
+        android:layout_marginEnd="@dimen/layout_marginEnd_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="City Name" />
 
     <View
         android:id="@+id/view_line_separator_blog"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:background="#A6A4A4"
+        android:layout_height="@dimen/layout_height_1dp"
+        android:layout_marginStart="@dimen/layout_marginStart_16dp"
+        android:layout_marginTop="@dimen/layout_marginTop_12dp"
+        android:layout_marginEnd="@dimen/layout_marginEnd_16dp"
+        android:layout_marginBottom="@dimen/layout_marginBottom_8dp"
+        android:background="@color/divider_line_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_location" />
 
     <TextView
-        android:id="@+id/textViewLocation"
-        android:layout_width="0dp"
+        android:id="@+id/textView_location"
+        android:layout_width="@dimen/layout_width_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:layout_marginStart="@dimen/layout_marginStart_16dp"
+        android:layout_marginTop="@dimen/layout_marginTop_8dp"
+        android:layout_marginEnd="@dimen/layout_marginEnd_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_title"
+        tools:text="Location Type" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

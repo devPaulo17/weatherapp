@@ -4,52 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6E1E5">
+    android:background="@color/prmiary_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="70dp"
-        android:background="#CAC4D0"
+        android:layout_width="@dimen/layout_width_0dp"
+        android:layout_height="@dimen/layout_height_60dp"
+        android:layout_marginTop="@dimen/layout_marginTop_70dp"
+        android:background="@color/primary_editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/editTextSearchWeather"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/layout_width_0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/layout_marginStart_16dp"
+            android:layout_marginEnd="@dimen/layout_marginEnd_16dp"
             android:autofillHints=""
-            android:background="#CAC4D0"
+            android:background="@color/primary_editText"
             android:ems="10"
-            android:hint="Buscar ubicación"
+            android:hint="@string/search_location"
             android:inputType="textPersonName"
-            android:minHeight="48dp"
+            android:minHeight="@dimen/minHeight_48dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/progressBarSearch"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/close_modal"
+            app:layout_constraintStart_toEndOf="@+id/ic_search"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="NotSibling" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ic_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/layout_marginStart_16dp"
             android:src="@drawable/ic_baseline_search_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <ProgressBar
-            android:id="@+id/progressBarSearch"
+            android:id="@+id/progress_bar_search"
             style="?android:attr/progressBarStyle"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="16dp"
-            android:indeterminateTint="#5F5E5E"
+            android:layout_width="@dimen/layout_width_24dp"
+            android:layout_height="@dimen/layout_height_24dp"
+            android:layout_marginEnd="@dimen/layout_marginEnd_16dp"
+            android:indeterminateTint="@color/icons"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,14 +59,15 @@
 
         <ImageView
             android:id="@+id/clear_text"
-            android:layout_width="24dp"
+            android:layout_width="@dimen/layout_width_24dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/layout_marginEnd_16dp"
             android:src="@drawable/ic_baseline_close_24"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/progressBarSearch"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/progress_bar_search"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -78,36 +81,37 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <ImageView
-        android:id="@+id/closeModal"
+        android:id="@+id/close_modal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/layout_marginStart_16dp"
+        android:layout_marginTop="@dimen/layout_marginTop_24dp"
         android:src="@drawable/ic_baseline_close_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <ImageView
-        android:id="@+id/imageEmptyState"
-        android:layout_width="205dp"
-        android:layout_height="191dp"
-        android:layout_marginTop="24dp"
+        android:id="@+id/image_empty_state"
+        android:layout_width="@dimen/layout_width_205dp"
+        android:layout_height="@dimen/layout_height_191dp"
+        android:layout_marginTop="@dimen/layout_marginTop_24dp"
         android:src="@drawable/ic_empty_state"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/empty_state_label" />
+        app:layout_constraintTop_toBottomOf="@+id/empty_state_label"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/empty_state_label"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/layout_width_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="No pudimos encontrar la ubicación"
+        android:layout_marginStart="@dimen/layout_marginStart_16dp"
+        android:layout_marginTop="@dimen/layout_marginTop_32dp"
+        android:layout_marginEnd="@dimen/layout_marginEnd_16dp"
+        android:text="@string/not_found_data"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="@dimen/textSize_24sp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

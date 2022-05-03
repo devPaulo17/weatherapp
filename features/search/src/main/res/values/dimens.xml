@@ -1,3 +1,23 @@
 <resources>
+    <!-- Dimens -->
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="layout_width_0dp">0dp</dimen>
+    <dimen name="layout_marginStart_16dp">16dp</dimen>
+    <dimen name="layout_marginTop_8dp">8dp</dimen>
+    <dimen name="layout_marginEnd_16dp" />
+    <dimen name="layout_marginTop_12dp">12dp</dimen>
+    <dimen name="layout_marginBottom_8dp">8dp</dimen>
+    <dimen name="layout_height_1dp">1dp</dimen>
+    <dimen name="layout_height_60dp">60dp</dimen>
+    <dimen name="layout_marginTop_70dp">70dp</dimen>
+    <dimen name="minHeight_48dp">48dp</dimen>
+    <dimen name="layout_width_24dp">24dp</dimen>
+    <dimen name="layout_height_24dp">24dp</dimen>
+    <dimen name="layout_marginTop_24dp">24dp</dimen>
+    <dimen name="layout_width_205dp">205dp</dimen>
+    <dimen name="layout_height_191dp">191dp</dimen>
+    <dimen name="layout_marginTop_32dp">32dp</dimen>
+
+    <!-- Dimens textSize -->
+    <dimen name="textSize_24sp">24sp</dimen>
 </resources>

@@ -22,6 +22,8 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.coroutines.CoroutineContext
 
+const val WOEID_LOCATION = "woeidLocation"
+
 class SearchViewModal : BottomSheetDialogFragment(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext = Dispatchers.Main
@@ -35,8 +37,6 @@ class SearchViewModal : BottomSheetDialogFragment(), CoroutineScope {
     }
 
     private var searchResultsListAdapter = SearchResultsListAdapter(onResultItemClick)
-
-
 
     private val watcher = object : TextWatcher {
         private var searchFor = ""
@@ -162,7 +162,9 @@ class SearchViewModal : BottomSheetDialogFragment(), CoroutineScope {
     }
 
     private fun goToLocationWeatherDetail(woeid: Int) {
-        startActivity(Intent(activity, WeatherDetailActivity::class.java))
+        startActivity(Intent(activity, WeatherDetailActivity::class.java).apply {
+            putExtra(WOEID_LOCATION, woeid)
+        })
     }
 
     override fun onDestroyView() {
@@ -182,5 +184,4 @@ class SearchViewModal : BottomSheetDialogFragment(), CoroutineScope {
             }
         }
     }
-
 }
