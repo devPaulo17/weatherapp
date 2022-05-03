@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.weatherapp.domain.entities.search.Search
 
-class SearchResultsListAdapter: RecyclerView.Adapter<SearchResultsListViewHolder>()  {
+class SearchResultsListAdapter(private val onResultItemClick: (Int) -> Unit) : RecyclerView.Adapter<SearchResultsListViewHolder>()  {
 
     var resultsList = listOf<Search>()
         private set
@@ -21,7 +21,7 @@ class SearchResultsListAdapter: RecyclerView.Adapter<SearchResultsListViewHolder
 
     override fun onBindViewHolder(holder: SearchResultsListViewHolder, position: Int) {
         val item = resultsList[position]
-        holder.bind(item)
+        holder.bind(item,onResultItemClick)
     }
 
     override fun getItemCount(): Int = resultsList.size

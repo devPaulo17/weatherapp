@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class SearchViewModel(private val searchRepository: SearchRepository) : ViewModel() {
 
-    private val _viewState = MutableLiveData<SearchUiState>(SearchUiState.Loading)
+    private val _viewState = MutableLiveData<SearchUiState>()
     val viewState: LiveData<SearchUiState> = _viewState
 
     fun getResults(searchText: String) {
@@ -18,7 +18,7 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
             _viewState.value = when (val result = searchRepository.getResults(searchText)) {
                 HandleResult.Loading -> SearchUiState.Loading
                 is HandleResult.Success -> {
-                    SearchUiState.ListCategories(result.data)
+                    SearchUiState.SearchResultList(result.data)
                 }
                 is HandleResult.InternetConnectionError -> SearchUiState.ErrorConnection
                 is HandleResult.Error -> SearchUiState.Error

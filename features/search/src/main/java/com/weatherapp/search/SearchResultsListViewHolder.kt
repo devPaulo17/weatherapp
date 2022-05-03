@@ -16,11 +16,13 @@ class SearchResultsListViewHolder(
     )
 ) : RecyclerView.ViewHolder(binding.root) {
 
-
-    fun bind(result: Search) {
+    fun bind(result: Search, onResultItemClick: (Int) -> Unit) {
         binding.apply {
             textViewTitle.text = result.title
-            //onItemClickStage.invoke(result)
+            textViewLocation.text = result.locationType
+            itemResultContainer.setOnClickListener {
+                onResultItemClick.invoke(result.woeid)
+            }
         }
     }
 }
