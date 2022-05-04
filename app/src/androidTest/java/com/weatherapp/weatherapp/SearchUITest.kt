@@ -19,6 +19,7 @@ import androidx.test.filters.LargeTest
 import com.weatherapp.search.R
 import com.weatherapp.search.SearchActivity
 import com.weatherapp.search.SearchResultsListViewHolder
+import com.weatherapp.weather.WeatherDetailActivity
 import org.hamcrest.CoreMatchers.containsString
 import org.junit.Rule
 import org.junit.Test
@@ -30,6 +31,7 @@ import java.util.regex.Matcher
 class SearchUITest {
     @get:Rule
     val activityRuleSearch = ActivityScenarioRule(SearchActivity::class.java)
+
 
     @Test
     fun verifyEmptyState() {
@@ -50,6 +52,7 @@ class SearchUITest {
             ViewActions.typeText("lon"),
             ViewActions.closeSoftKeyboard()
         )
+        Thread.sleep(5000)
 
         onView(withId(R.id.search_result))
             .perform(
@@ -58,8 +61,9 @@ class SearchUITest {
                     click()
                 )
             )
+        Thread.sleep(5000)
 
-        onView(withId(R.id.textView_title)).check(matches(withText("London")))
+        onView(withId(com.weatherapp.weather.R.id.textView_location_type)).check(matches(withText("City")))
+    }
+}
 
-    }
-    }
