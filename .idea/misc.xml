@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/shape_rounded_button.xml" value="0.1045" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="features/search/src/main/res/layout/activity_search.xml" value="0.10204081632653061" />
         <entry key="features/search/src/main/res/layout/item_result.xml" value="0.1092896174863388" />
         <entry key="features/weather/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1" />
