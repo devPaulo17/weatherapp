@@ -3,9 +3,7 @@ package com.weatherapp.weatherapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.weatherapp.search.SearchViewModal
-import com.weatherapp.weather.WeatherDetailActivity
-import com.weatherapp.weather.databinding.ActivityWeatherDetailBinding
+import com.weatherapp.search.SearchActivity
 import com.weatherapp.weatherapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,9 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         binding?.buttonSearch?.setOnClickListener {
-            val platziInfoActionModal = SearchViewModal()
-            platziInfoActionModal.show(supportFragmentManager, platziInfoActionModal.tag)
-
+            startActivity(Intent(this, SearchActivity::class.java))
         }
     }
 

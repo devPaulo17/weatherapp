@@ -1,17 +1,13 @@
 package com.weatherapp.search
 
 import android.annotation.SuppressLint
-import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.weatherapp.domain.entities.search.Search
 import com.weatherapp.search.databinding.ActivitySearchBinding
 import com.weatherapp.weather.WeatherDetailActivity
@@ -22,10 +18,7 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.coroutines.CoroutineContext
 
-const val WOEID_LOCATION = "woeidLocation"
-
-class SearchViewModal : BottomSheetDialogFragment(), CoroutineScope {
-
+class SearchActivity : AppCompatActivity(), CoroutineScope {
     override val coroutineContext: CoroutineContext = Dispatchers.Main
 
     private var binding: ActivitySearchBinding? = null
@@ -63,17 +56,11 @@ class SearchViewModal : BottomSheetDialogFragment(), CoroutineScope {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = ActivitySearchBinding.inflate(inflater, container, false)
-        return binding?.root
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivitySearchBinding.inflate(layoutInflater)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        setContentView(binding?.root)
         setUpRecyclerView()
         addListeners()
         searchResultsObserver()
@@ -85,14 +72,9 @@ class SearchViewModal : BottomSheetDialogFragment(), CoroutineScope {
             clearText.setOnClickListener {
                 setErrorState()
             }
-            closeModal.setOnClickListener { dialog?.dismiss() }
+            closeModal.setOnClickListener { finish() }
         }
 
-    }
-
-    override fun onStart() {
-        super.onStart()
-        dialog?.setFullHeight()
     }
 
 
@@ -161,26 +143,13 @@ class SearchViewModal : BottomSheetDialogFragment(), CoroutineScope {
     }
 
     private fun goToLocationWeatherDetail(woeid: Int) {
-        startActivity(Intent(activity, WeatherDetailActivity::class.java).apply {
-            putExtra(WOEID_LOCATION, woeid)
+        startActivity(Intent(this, WeatherDetailActivity::class.java).apply {
+            putExtra("woeidLocation", woeid)
         })
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onDestroy() {
+        super.onDestroy()
         binding = null
-    }
-
-    private fun Dialog.setFullHeight() {
-        this.also {
-            it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.apply {
-                layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
-                BottomSheetBehavior.from(this).run {
-                    peekHeight = resources.displayMetrics.heightPixels
-                    isHideable = false
-                }
-                this.requestLayout()
-            }
-        }
     }
 }
