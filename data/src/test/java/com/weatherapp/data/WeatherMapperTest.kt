@@ -11,7 +11,28 @@ import org.junit.Test
 class WeatherMapperTest {
 
     private val consolidatedWeather =
-        listOf(ConsolidatedWeatherApi("Test", "Test"), ConsolidatedWeatherApi("Test", "Test"))
+        listOf(
+            ConsolidatedWeatherApi(
+                "Test",
+                "Test",
+                "2022-05-07",
+                9.7F,
+                14.139999999999999F,
+                14.76F,
+                5.754410774739521F,
+                71F
+            ),
+            ConsolidatedWeatherApi(
+                "Test",
+                "Test",
+                "2022-05-07",
+                9.7F,
+                14.139999999999999F,
+                14.76F,
+                5.754410774739521F,
+                71F
+            ),
+        )
 
     private val weatherLocationDetail = WeatherApi(
         "test",
@@ -19,7 +40,9 @@ class WeatherMapperTest {
         368148,
         "4.656370,-74.117790",
         "Bogota/Colombia",
-        consolidatedWeather
+        consolidatedWeather,
+        "2022-05-03T05:28:53.178071+01:00",
+        "2022-05-03T05:28:53.178071+01:00"
     )
 
 
@@ -33,7 +56,7 @@ class WeatherMapperTest {
             assertEquals(lattLong, weatherLocationDetail.lattLong)
             assertEquals(timeZone, weatherLocationDetail.timeZone)
             assertEquals(
-                consolidatedWeather,weatherLocationDetail.consolidatedWeather
+                consolidatedWeather, weatherLocationDetail.consolidatedWeather
             )
         }
     }

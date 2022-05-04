@@ -15,7 +15,7 @@ internal inline fun <T : Any> executeRetrofitRequest(request: () -> Response<T>)
             }
         } else {
             val errorBody = response.errorBody()
-            val errorText = if (errorBody == null) "Error body null" else errorBody.string()
+            val errorText = errorBody?.string() ?: "Error body null"
             HandleResult.Error(errorText, response.code())
         }
     }
@@ -37,35 +37,6 @@ fun <Api : Any, Data : Any> handleResultRetrofit(
             }
         }
         is HandleResult.Success -> HandleResult.Success(onSuccess.invoke(result.data))
-        else -> HandleResult.Loading
-    }
-}
-
-internal inline fun <Api : Any, Domain : Any> mapDomainDataState(
-    apiDataState: HandleResult<Api>,
-    block: Api.() -> Domain
-): HandleResult<Domain> {
-    return when (apiDataState) {
-        is HandleResult.Success -> {
-            return HandleResult.Success(block.invoke(apiDataState.data))
-        }
-        is HandleResult.Error -> HandleResult.Error(apiDataState.exception)
-        is HandleResult.InternetConnectionError -> HandleResult.InternetConnectionError
-        else -> HandleResult.Loading
-    }
-}
-
-internal inline fun <Helper : Any, Api : Any, Domain : Any> mapDomainDataState(
-    apiDataState: HandleResult<Api>,
-    helper: Helper,
-    block: (Helper, Api) -> Domain
-): HandleResult<Domain> {
-    return when (apiDataState) {
-        is HandleResult.Success -> {
-            return HandleResult.Success(block.invoke(helper, apiDataState.data))
-        }
-        is HandleResult.Error -> HandleResult.Error(apiDataState.exception)
-        is HandleResult.InternetConnectionError -> HandleResult.InternetConnectionError
         else -> HandleResult.Loading
     }
 }

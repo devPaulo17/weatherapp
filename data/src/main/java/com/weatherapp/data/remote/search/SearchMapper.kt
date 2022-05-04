@@ -8,9 +8,9 @@ fun List<SearchApi>.toListResults(): List<Search> {
     return map { item ->
         Search(
             title = item.title,
-            locationType = item.locationType?:"",
+            locationType = item.locationType,
             woeid = item.woeid,
-            lattLong = item.lattLong?:""
+            lattLong = item.lattLong
         )
     }
 }

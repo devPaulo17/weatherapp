@@ -10,6 +10,7 @@ import java.util.*
 
 class SplashScreenActivity : AppCompatActivity() {
     private var binding: ActivitySplashScreenBinding? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
