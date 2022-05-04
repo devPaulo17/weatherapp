@@ -23,5 +23,4 @@ class CoroutinesTestRule(private val testDispatcher: TestCoroutineDispatcher = T
         Dispatchers.resetMain()
         testDispatcher.cleanupTestCoroutines()
     }
-
 }

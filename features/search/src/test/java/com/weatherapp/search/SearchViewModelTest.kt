@@ -37,7 +37,7 @@ class SearchViewModelTest {
     )
 
     private val mockResultsRepository = mock<SearchRepository> {
-        onBlocking { getResults(searchText) } doReturn HandleResult.Success(searchResultList)
+        onBlocking { getResults("london") } doReturn HandleResult.Success(searchResultList)
     }
 
     private val viewModel =
@@ -49,18 +49,8 @@ class SearchViewModelTest {
         val spyLiveData: Observer<SearchUiState> = spy(Observer { })
         viewModel.viewState.observeForever(spyLiveData)
         runBlocking {
-            viewModel.getResults(searchText)
-            assertTrue(viewModel.viewState.value is SearchUiState.ListCategories)
-        }
-    }
-
-    @Test
-    fun `getResults() when use case returns HandleResult error then state emit a search message`() {
-        val spyLiveData: Observer<SearchUiState> = spy(Observer { })
-        viewModel.viewState.observeForever(spyLiveData)
-        runBlocking {
-            viewModel.getResults(searchText)
-            assertTrue(viewModel.viewState.value is SearchUiState.ListCategories)
+            viewModel.getResults("london")
+            assertTrue(viewModel.viewState.value is SearchUiState.SearchResultList)
         }
     }
 }
