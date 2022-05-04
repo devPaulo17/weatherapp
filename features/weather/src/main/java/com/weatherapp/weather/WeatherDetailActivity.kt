@@ -1,6 +1,7 @@
 package com.weatherapp.weather
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,15 @@ class WeatherDetailActivity : AppCompatActivity() {
         searchResultsObserver()
         getWeatherDetail()
         setListeners()
+
+        var orientation = resources.configuration.orientation
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            binding?.recyclerForecastList?.apply {
+                adapter = weatherForecastAdapter
+                itemAnimator = null
+                layoutManager = LinearLayoutManager(context)
+            }
+        }
     }
 
     private fun getWeatherDetail() {
@@ -82,7 +92,7 @@ class WeatherDetailActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun setDataCurrentLocation(result: Weather) {
         binding?.apply {
-            textViewTitle.text = result.title
+            textViewTitle.text = "${result.title} Today"
             textViewLocationType.text = result.locationType
             textViewTime.text = result.timeZone
             textViewTemperature.text =
@@ -100,6 +110,7 @@ class WeatherDetailActivity : AppCompatActivity() {
             imageViewGraph.setBackgroundResource(getWeatherStateIcon(result))
         }
     }
+
 
     private fun setErrorState() {
     }

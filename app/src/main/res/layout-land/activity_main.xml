@@ -11,7 +11,7 @@
         android:id="@+id/textView_welcome_label"
         android:layout_width="@dimen/layout_width_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/layout_marginTop_224dp"
+        android:layout_marginTop="80dp"
         android:gravity="center"
         android:text="@string/welcome"
         android:textColor="@color/white"
@@ -28,13 +28,15 @@
         android:layout_height="@dimen/layout_height_58dp"
         android:layout_marginTop="@dimen/layout_marginTop_50dp"
         android:background="@drawable/shape_rounded_button"
-        android:text="@string/search_weather_location"
-        android:textAllCaps="false"
         android:drawableLeft="@drawable/ic_baseline_search_24"
         android:gravity="center"
+        android:text="@string/search_weather_location"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_welcome_label"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="RtlHardcoded" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
